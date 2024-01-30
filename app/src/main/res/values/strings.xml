@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AndroidDemo</string>
+    <string name="button_title">Press Me</string>
+    <string name="input_type_password_hint">Введите пароль...</string>
+    <string name="password">Пароль</string>
+
+</resources>
