@@ -3,5 +3,6 @@
     <string name="button_title">Press Me</string>
     <string name="input_type_password_hint">Введите пароль...</string>
     <string name="password">Пароль</string>
+    <string name="result_fmt">Результат: %1$d</string>
 
 </resources>
