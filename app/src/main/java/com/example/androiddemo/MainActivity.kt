@@ -15,13 +15,31 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.button1.setOnClickListener {
+        binding.sumBtn.setOnClickListener {
             val firstNumber = binding.firstNumber.text.toString().toInt()
             val secondNumber = binding.secondNumber.text.toString().toInt()
-            val sum = firstNumber + secondNumber
+            val calculator = Calculator(firstNumber, secondNumber)
 
             binding.result.isVisible = true
-            binding.result.text = getString(R.string.result_fmt, sum)
+            binding.result.text = getString(R.string.result_fmt, calculator.sum())
+        }
+
+        binding.subtractBtn.setOnClickListener {
+            val firstNumber = binding.firstNumber.text.toString().toInt()
+            val secondNumber = binding.secondNumber.text.toString().toInt()
+            val calculator = Calculator(firstNumber, secondNumber)
+
+            binding.result.isVisible = true
+            binding.result.text = getString(R.string.result_fmt, calculator.subtraction())
+        }
+
+        binding.multiplyBtn.setOnClickListener {
+            val firstNumber = binding.firstNumber.text.toString().toInt()
+            val secondNumber = binding.secondNumber.text.toString().toInt()
+            val calculator = Calculator(firstNumber, secondNumber)
+
+            binding.result.isVisible = true
+            binding.result.text = getString(R.string.result_fmt, calculator.multiplication())
         }
 
         binding.button2.setOnClickListener {
