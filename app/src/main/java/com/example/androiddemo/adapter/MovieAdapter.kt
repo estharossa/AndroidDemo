@@ -1,5 +1,6 @@
 package com.example.androiddemo.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,6 +11,10 @@ class MovieAdapter(
     private val onMovieClick: (Movie) -> Unit,
     private val onMovieRemoved: (Movie) -> Unit
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+
+    companion object {
+        private const val MOVIE_ADAPTER_TAG = "MovieAdapter"
+    }
 
     private val movieList: ArrayList<Movie> = ArrayList()
 
@@ -27,6 +32,7 @@ class MovieAdapter(
      * метод, который будет создавать view для каждого объекта
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        Log.d(MOVIE_ADAPTER_TAG, "onCreateViewHolder")
         return ViewHolder(
             ItemMovieBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
@@ -43,6 +49,7 @@ class MovieAdapter(
      * для вызова метода из ViewHolder'a
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        Log.d(MOVIE_ADAPTER_TAG, "onBindViewHolder: $position")
         holder.bind(movieList[position])
     }
 
