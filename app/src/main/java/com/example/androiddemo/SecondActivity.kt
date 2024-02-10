@@ -24,14 +24,5 @@ class SecondActivity : AppCompatActivity() {
         val result = intent.getStringExtra(KEY_RESULT)
 
         binding.resultTextView.text = result
-
-        binding.intentButton.setOnClickListener {
-//            val intent = Intent(Intent.ACTION_VIEW)
-//            intent.setData(Uri.parse("tel:+770112312322"))
-//            startActivity(intent)
-
-            val pickImg = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-            startActivity(pickImg)
-        }
     }
 }

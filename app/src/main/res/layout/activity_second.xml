@@ -16,14 +16,4 @@
         android:text="SecondActivity"
         android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/intent_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingVertical="12dp"
-        android:text="Open Browser"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
-
 </LinearLayout>

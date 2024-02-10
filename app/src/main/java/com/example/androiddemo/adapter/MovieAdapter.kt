@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androiddemo.databinding.ItemMovieBinding
 import com.example.androiddemo.model.Movie
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+class MovieAdapter(
+    private val onMovieClick: (Movie) -> Unit
+) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     private val movieList: ArrayList<Movie> = ArrayList()
 
@@ -54,6 +56,10 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
                 movieDescription.text = movie.shortDescription
                 movieRating.text = "${movie.rating}/5"
                 movieGenre.text = movie.genre.first().value
+
+                root.setOnClickListener {
+                    onMovieClick(movie)
+                }
             }
         }
     }
