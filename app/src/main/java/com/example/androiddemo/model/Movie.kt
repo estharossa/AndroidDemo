@@ -9,5 +9,12 @@ data class Movie(
     val rating: Double,
     val imageRes: Int,
     val duration: Int,
-    val genre: String
-)
+    val genre: ArrayList<Genre> = arrayListOf()
+) {
+
+    enum class Genre(val value: String) {
+        FANTASTIC("fantastic"),
+        COMEDY("comedy"),
+        HORROR("horror")
+    }
+}

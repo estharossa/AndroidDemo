@@ -52,7 +52,8 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
                 movieImage.setImageResource(movie.imageRes)
                 movieTitle.text = movie.title
                 movieDescription.text = movie.shortDescription
-                movieRating.text = movie.rating.toString()
+                movieRating.text = "${movie.rating}/5"
+                movieGenre.text = movie.genre.first().value
             }
         }
     }

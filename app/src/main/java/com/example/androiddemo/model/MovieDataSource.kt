@@ -10,7 +10,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Iron Man",
@@ -18,7 +18,7 @@ object MovieDataSource {
             rating = 9.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 110,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Thor",
@@ -26,7 +26,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Avengers",
@@ -34,7 +34,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Iron Man",
@@ -42,7 +42,7 @@ object MovieDataSource {
             rating = 9.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 110,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Thor",
@@ -50,7 +50,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Avengers",
@@ -58,7 +58,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Iron Man",
@@ -66,7 +66,7 @@ object MovieDataSource {
             rating = 9.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 110,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Thor",
@@ -74,7 +74,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Avengers",
@@ -82,7 +82,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Iron Man",
@@ -90,7 +90,7 @@ object MovieDataSource {
             rating = 9.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 110,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Thor",
@@ -98,7 +98,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Avengers",
@@ -106,7 +106,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Iron Man",
@@ -114,7 +114,7 @@ object MovieDataSource {
             rating = 9.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 110,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Thor",
@@ -122,7 +122,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Avengers",
@@ -130,7 +130,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Iron Man",
@@ -138,7 +138,7 @@ object MovieDataSource {
             rating = 9.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 110,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Thor",
@@ -146,7 +146,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Avengers",
@@ -154,7 +154,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Iron Man",
@@ -162,7 +162,7 @@ object MovieDataSource {
             rating = 9.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 110,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         ),
         Movie(
             title = "Thor",
@@ -170,7 +170,7 @@ object MovieDataSource {
             rating = 8.5,
             imageRes = R.drawable.baseline_connected_tv_24,
             duration = 120,
-            genre = "Fantastic"
+            genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
         )
     )
 }
