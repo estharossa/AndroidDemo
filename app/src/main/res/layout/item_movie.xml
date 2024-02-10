@@ -14,9 +14,10 @@
         tools:srcCompat="@drawable/baseline_connected_tv_24" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
@@ -76,5 +77,13 @@
 
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/remove_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        app:srcCompat="@drawable/baseline_delete_24" />
 
 </LinearLayout>

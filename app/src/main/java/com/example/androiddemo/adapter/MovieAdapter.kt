@@ -7,7 +7,8 @@ import com.example.androiddemo.databinding.ItemMovieBinding
 import com.example.androiddemo.model.Movie
 
 class MovieAdapter(
-    private val onMovieClick: (Movie) -> Unit
+    private val onMovieClick: (Movie) -> Unit,
+    private val onMovieRemoved: (Movie) -> Unit
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     private val movieList: ArrayList<Movie> = ArrayList()
@@ -59,6 +60,10 @@ class MovieAdapter(
 
                 root.setOnClickListener {
                     onMovieClick(movie)
+                }
+
+                removeMovie.setOnClickListener {
+                    onMovieRemoved(movie)
                 }
             }
         }
