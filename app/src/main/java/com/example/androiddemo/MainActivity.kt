@@ -20,21 +20,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        MovieAdapter(
-            onMovieClick = {
-                handleMovieClick(it)
-            },
-            onMovieRemoved = {
-                handleMovieRemoval(it)
-            }
-        )
-
         adapter = MovieAdapter(
             onMovieClick = {
                 handleMovieClick(it)
             },
             onMovieRemoved = {
                 handleMovieRemoval(it)
+            },
+            onChangeFavouriteState = {
+                handleFavouriteState(it)
             }
         )
 
@@ -54,5 +48,17 @@ class MainActivity : AppCompatActivity() {
         movieList.remove(movie)
 
         adapter?.setData(movieList)
+    }
+
+    private fun handleFavouriteState(movie: Movie) {
+        val movieList = MovieDataSource.movieList.map {
+            if (it == movie) {
+                it.copy(isFavourite = true)
+            } else {
+                it.copy()
+            }
+        }
+
+        adapter?.setData(ArrayList(movieList))
     }
 }

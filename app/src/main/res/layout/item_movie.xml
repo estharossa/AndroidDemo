@@ -54,7 +54,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="12dp"
+                android:layout_width="8dp"
                 android:layout_height="12dp"
                 android:layout_gravity="bottom"
                 android:layout_marginEnd="2dp"
@@ -77,6 +77,15 @@
 
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/favourite"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="12dp"
+        android:contentDescription="@null"
+        app:srcCompat="@drawable/baseline_star_24" />
 
     <ImageView
         android:id="@+id/remove_movie"

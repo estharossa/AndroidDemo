@@ -9,7 +9,8 @@ data class Movie(
     val rating: Double,
     val imageRes: Int,
     val duration: Int,
-    val genre: ArrayList<Genre> = arrayListOf()
+    val genre: ArrayList<Genre> = arrayListOf(),
+    val isFavourite: Boolean = false
 ) {
 
     enum class Genre(val value: String) {

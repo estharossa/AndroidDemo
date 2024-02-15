@@ -1,5 +1,7 @@
 package com.example.androiddemo.adapter
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +11,8 @@ import com.example.androiddemo.model.Movie
 
 class MovieAdapter(
     private val onMovieClick: (Movie) -> Unit,
-    private val onMovieRemoved: (Movie) -> Unit
+    private val onMovieRemoved: (Movie) -> Unit,
+    private val onChangeFavouriteState: (Movie) -> Unit
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     companion object {
@@ -32,7 +35,6 @@ class MovieAdapter(
      * метод, который будет создавать view для каждого объекта
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        Log.d(MOVIE_ADAPTER_TAG, "onCreateViewHolder")
         return ViewHolder(
             ItemMovieBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
@@ -71,6 +73,16 @@ class MovieAdapter(
 
                 removeMovie.setOnClickListener {
                     onMovieRemoved(movie)
+                }
+
+                favourite.setOnClickListener {
+                    onChangeFavouriteState(movie)
+                }
+
+                if (movie.isFavourite) {
+                    favourite.imageTintList = ColorStateList.valueOf(Color.YELLOW)
+                } else {
+                    favourite.imageTintList = ColorStateList.valueOf(Color.BLACK)
                 }
             }
         }
