@@ -5,30 +5,20 @@ import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androiddemo.databinding.ItemMovieBinding
 import com.example.androiddemo.model.Movie
+import com.example.androiddemo.model.MovieItemCallback
 
 class MovieAdapter(
     private val onMovieClick: (Movie) -> Unit,
     private val onMovieRemoved: (Movie) -> Unit,
     private val onChangeFavouriteState: (Movie) -> Unit
-) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+) : ListAdapter<Movie, MovieAdapter.ViewHolder>(MovieItemCallback()) {
 
     companion object {
         private const val MOVIE_ADAPTER_TAG = "MovieAdapter"
-    }
-
-    private val movieList: ArrayList<Movie> = ArrayList()
-
-    fun setData(movies: ArrayList<Movie>) {
-        movieList.clear()
-        movieList.addAll(movies)
-
-        /**
-         * метод для обновления списка элементов
-         */
-        notifyDataSetChanged()
     }
 
     /**
@@ -43,16 +33,11 @@ class MovieAdapter(
     }
 
     /**
-     * метод, для определения количесвта элементов списка
-     */
-    override fun getItemCount() = movieList.size
-
-    /**
      * для вызова метода из ViewHolder'a
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Log.d(MOVIE_ADAPTER_TAG, "onBindViewHolder: $position")
-        holder.bind(movieList[position])
+        holder.bind(getItem(position))
     }
 
     inner class ViewHolder(

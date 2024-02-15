@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.recyclerView.adapter = adapter
 
-        adapter?.setData(MovieDataSource.movieList)
+        adapter?.submitList(MovieDataSource.movieList)
     }
 
     private fun handleMovieClick(movie: Movie) {
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         val movieList = MovieDataSource.movieList
         movieList.remove(movie)
 
-        adapter?.setData(movieList)
+        adapter?.submitList(movieList)
     }
 
     private fun handleFavouriteState(movie: Movie) {
@@ -59,6 +59,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        adapter?.setData(ArrayList(movieList))
+        adapter?.submitList(ArrayList(movieList))
     }
 }
