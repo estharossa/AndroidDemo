@@ -3,7 +3,7 @@ package com.example.androiddemo.model
 import com.example.androiddemo.R
 
 object MovieDataSource {
-    val movieList = arrayListOf<Movie>(
+    var movieList = arrayListOf<Movie>(
         Movie(
             title = "Avengers",
             shortDescription = "A movie about super heroes",

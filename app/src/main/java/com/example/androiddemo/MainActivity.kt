@@ -53,11 +53,14 @@ class MainActivity : AppCompatActivity() {
     private fun handleFavouriteState(movie: Movie) {
         val movieList = MovieDataSource.movieList.map {
             if (it == movie) {
-                it.copy(isFavourite = true)
+                val isFavourite = it.isFavourite
+                it.copy(isFavourite = !isFavourite)
             } else {
                 it.copy()
             }
         }
+
+        MovieDataSource.movieList = ArrayList(movieList)
 
         adapter?.submitList(ArrayList(movieList))
     }
