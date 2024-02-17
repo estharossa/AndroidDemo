@@ -1,13 +1,11 @@
 package com.example.androiddemo.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.androiddemo.R
-import com.example.androiddemo.SecondActivity
 import com.example.androiddemo.adapter.MovieAdapter
 import com.example.androiddemo.databinding.FragmentMovieListBinding
 import com.example.androiddemo.model.Movie
@@ -51,9 +49,23 @@ class MovieListFragment : Fragment() {
 
 
     private fun handleMovieClick(movie: Movie) {
-        val intent = Intent(requireContext(), SecondActivity::class.java)
-        intent.putExtra(SecondActivity.KEY_RESULT, movie.title)
-        startActivity(intent)
+        /**
+         * transition to movie details using activity
+         */
+//        val intent = Intent(requireContext(), SecondActivity::class.java)
+//        intent.putExtra(SecondActivity.KEY_RESULT, movie.title)
+//        startActivity(intent)
+
+        /**
+         * transition to movie details using fragment
+         */
+
+        val movieDetailsFragment = MovieDetailsFragment.newInstance(movie.title)
+
+        requireActivity().supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, movieDetailsFragment)
+            .commit()
     }
 
     private fun handleMovieRemoval(movie: Movie) {
