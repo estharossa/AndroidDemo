@@ -4,6 +4,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.androiddemo.R
 import com.example.androiddemo.databinding.ItemMovieBinding
 import com.example.androiddemo.model.Movie
 
@@ -59,7 +61,14 @@ class MovieAdapter(
 
         fun bind(movie: Movie) {
             with(binding) {
-                movieImage.setImageResource(movie.imageRes)
+
+                Glide
+                    .with(root.context)
+                    .load(movie.imageUrl)
+                    .placeholder(R.drawable.baseline_connected_tv_24)
+                    .into(movieImage)
+
+//                movieImage.setImageResource(movie.imageRes)
                 movieTitle.text = movie.title
                 movieDescription.text = movie.shortDescription
                 movieRating.text = "${movie.rating}/5"

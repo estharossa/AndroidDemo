@@ -7,7 +7,7 @@ data class Movie(
     val title: String,
     val shortDescription: String,
     val rating: Double,
-    val imageRes: Int,
+    val imageUrl: String,
     val duration: Int,
     val genre: ArrayList<Genre> = arrayListOf()
 ) {
