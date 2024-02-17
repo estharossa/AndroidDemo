@@ -45,6 +45,25 @@ class MovieListFragment : Fragment() {
         binding.recyclerView.adapter = adapter
 
         adapter?.setData(MovieDataSource.movieList)
+
+        requireActivity().supportFragmentManager.setFragmentResultListener(
+            "MovieTitleResult",
+            viewLifecycleOwner
+        ) { requestKey, bundle ->
+            val result = bundle.getString("bundleKey")
+            MovieDataSource.movieList.add(
+                Movie(
+                    title = result!!,
+                    shortDescription = "A movie about super heroes",
+                    rating = 8.5,
+                    imageUrl = "https://lumiere-a.akamaihd.net/v1/images/p_avengersendgame_19751_e14a0104.jpeg",
+                    duration = 120,
+                    genre = arrayListOf(Movie.Genre.HORROR, Movie.Genre.FANTASTIC)
+                )
+            )
+
+            adapter?.setData(MovieDataSource.movieList)
+        }
     }
 
 

@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
 import com.example.androiddemo.databinding.FragmentMovieDetailsBinding
 
 
@@ -38,5 +40,11 @@ class MovieDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.movieTitle.text = title
+
+        binding.button.setOnClickListener {
+            val movieTitle = binding.editText.text.toString()
+            setFragmentResult("MovieTitleResult", bundleOf("bundleKey" to movieTitle))
+            requireActivity().onBackPressed()
+        }
     }
 }
