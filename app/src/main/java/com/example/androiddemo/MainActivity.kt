@@ -22,4 +22,8 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.fragment_container, movieListFragment)
             .commit()
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
 }
