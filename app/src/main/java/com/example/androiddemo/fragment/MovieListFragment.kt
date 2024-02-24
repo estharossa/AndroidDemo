@@ -1,12 +1,12 @@
 package com.example.androiddemo.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.androiddemo.R
 import com.example.androiddemo.adapter.MovieAdapter
 import com.example.androiddemo.databinding.FragmentMovieListBinding
 import com.example.androiddemo.model.Movie
@@ -38,6 +38,20 @@ class MovieListFragment : Fragment() {
                 handleMovieRemoval(it)
             }
         )
+
+        binding.editText.addTextChangedListener {
+            val searchQuery = it.toString()
+
+            if (searchQuery.isEmpty()) {
+                adapter?.setData(MovieDataSource.movieList)
+            } else {
+                val list = MovieDataSource.movieList.filter {
+                    it.title.contains(searchQuery)
+                }
+
+                adapter?.setData(ArrayList(list))
+            }
+        }
 
         binding.recyclerView.adapter = adapter
 
