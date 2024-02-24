@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.androiddemo.databinding.ActivityMainBinding
 import com.example.androiddemo.fragment.MovieListFragment
+import com.example.androiddemo.util.UserData
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,16 +27,15 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
-        navGraph.setStartDestination(R.id.movie_list_fragment)
-//        when {
-//            UserData(this).isAuthorized -> {
-//                navGraph.setStartDestination(R.id.movieListFragment)
-//            }
-//
-////            !UserData.isAuthorized -> {
-////                navGraph.setStartDestination(R.id.signFlowFragment)
-////            }
-//        }
+        when {
+            UserData(this).isAuthorized() -> {
+                navGraph.setStartDestination(R.id.movie_list_fragment)
+            }
+
+            !UserData(this).isAuthorized() -> {
+                navGraph.setStartDestination(R.id.login_fragment)
+            }
+        }
         navController.graph = navGraph
     }
 
