@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.androiddemo.R
 import com.example.androiddemo.adapter.MovieAdapter
 import com.example.androiddemo.databinding.FragmentMovieListBinding
@@ -15,10 +16,6 @@ class MovieListFragment : Fragment() {
 
     private var _binding: FragmentMovieListBinding? = null
     private val binding get() = _binding!!
-
-    companion object {
-        fun newInstance() = MovieListFragment()
-    }
 
     private var adapter: MovieAdapter? = null
 
@@ -76,16 +73,22 @@ class MovieListFragment : Fragment() {
 //        startActivity(intent)
 
         /**
-         * transition to movie details using fragment
+         * transition to movie details using fragment manager
          */
 
-        val movieDetailsFragment = MovieDetailsFragment.newInstance(movie.title)
+//        val movieDetailsFragment = MovieDetailsFragment.newInstance(movie.title)
+//
+//        requireActivity().supportFragmentManager
+//            .beginTransaction()
+//            .addToBackStack(null)
+//            .replace(R.id.fragment_container, movieDetailsFragment)
+//            .commit()
 
-        requireActivity().supportFragmentManager
-            .beginTransaction()
-            .addToBackStack(null)
-            .replace(R.id.fragment_container, movieDetailsFragment)
-            .commit()
+        /**
+         * transition to movie details using Jetpack Navigation
+         */
+        val direction = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movie.title)
+        findNavController().navigate(direction)
     }
 
     private fun handleMovieRemoval(movie: Movie) {
