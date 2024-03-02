@@ -11,6 +11,11 @@ import com.example.androiddemo.adapter.MovieAdapter
 import com.example.androiddemo.databinding.FragmentMovieListBinding
 import com.example.androiddemo.model.Movie
 import com.example.androiddemo.model.MovieDataSource
+import com.example.androiddemo.model.Person
+import com.example.androiddemo.network.ApiClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MovieListFragment : Fragment() {
 
@@ -75,6 +80,30 @@ class MovieListFragment : Fragment() {
 
             adapter?.setData(MovieDataSource.movieList)
         }
+
+        val client = ApiClient.instance
+        val response = client.fetchPersonList()
+
+        response.enqueue(object : Callback<List<Person>> {
+            override fun onResponse(call: Call<List<Person>>, response: Response<List<Person>>) {
+                println("HttpResponse: ${response.body()}")
+
+                /**
+                 * example
+                 */
+//                val list = response.body()
+//
+//                if (list != null) {
+//                    pizzaAdapter.setData(list)
+//                }
+            }
+
+            override fun onFailure(call: Call<List<Person>>, t: Throwable) {
+                println("HttpResponse: ${t.message}")
+            }
+        })
+
+        println("HttpResponse: 2 + 2 = 4")
     }
 
 
@@ -101,7 +130,8 @@ class MovieListFragment : Fragment() {
         /**
          * transition to movie details using Jetpack Navigation
          */
-        val direction = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movie.title)
+        val direction =
+            MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movie.title)
         findNavController().navigate(direction)
     }
 
