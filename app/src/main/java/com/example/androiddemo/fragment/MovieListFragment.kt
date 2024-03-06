@@ -10,9 +10,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.androiddemo.adapter.MovieAdapter
 import com.example.androiddemo.databinding.FragmentMovieListBinding
 import com.example.androiddemo.model.Movie
+import com.example.androiddemo.model.MovieAPIResponse
 import com.example.androiddemo.model.MovieDataSource
 import com.example.androiddemo.model.Person
 import com.example.androiddemo.network.ApiClient
+import com.example.androiddemo.network.MovieApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -81,24 +83,33 @@ class MovieListFragment : Fragment() {
             adapter?.setData(MovieDataSource.movieList)
         }
 
-        val client = ApiClient.instance
-        val response = client.fetchPersonList()
+        val client = MovieApiClient.instance
+        val response = client.fetchMovieList()
 
-        response.enqueue(object : Callback<List<Person>> {
-            override fun onResponse(call: Call<List<Person>>, response: Response<List<Person>>) {
+        response.enqueue(object : Callback<MovieAPIResponse> {
+            override fun onResponse(
+                call: Call<MovieAPIResponse>,
+                response: Response<MovieAPIResponse>
+            ) {
                 println("HttpResponse: ${response.body()}")
 
                 /**
                  * example
                  */
-//                val list = response.body()
-//
-//                if (list != null) {
-//                    pizzaAdapter.setData(list)
-//                }
+                val movieList = response.body()?.results
+
+                if (movieList != null) {
+                    adapter?.setData(
+                        movies = ArrayList(
+                            movieList.map {
+                                Movie.toMovie(it)
+                            }
+                        )
+                    )
+                }
             }
 
-            override fun onFailure(call: Call<List<Person>>, t: Throwable) {
+            override fun onFailure(call: Call<MovieAPIResponse>, t: Throwable) {
                 println("HttpResponse: ${t.message}")
             }
         })

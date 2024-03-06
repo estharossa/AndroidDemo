@@ -64,8 +64,8 @@ class MovieAdapter(
 
                 Glide
                     .with(root.context)
-                    .load(movie.imageUrl)
-                    .placeholder(R.drawable.baseline_connected_tv_24)
+                    .load("https://image.tmdb.org/t/p/original" + movie.imageUrl)
+//                    .placeholder(R.drawable.baseline_connected_tv_24)
                     .into(movieImage)
 
 //                movieImage.setImageResource(movie.imageRes)
